@@ -34,18 +34,23 @@ public class TarefasController {
         return ResponseEntity.ok(_tarefaService.buscarPorId(id));
     }
 
+//    @PostMapping("/inserir")
+//    public ResponseEntity<Tarefa> inserir(@RequestParam("titulo") String titulo, @RequestParam("descricao") String descricao, @RequestParam("status") EnumStatus status) {
+//        Tarefa _tarefa = new Tarefa(titulo, descricao, status);
+//        _tarefaService.inserir(_tarefa);
+//        return ResponseEntity.ok(_tarefa);
+//    }
+
     @PostMapping("/inserir")
-    public ResponseEntity<Tarefa> inserir(@RequestParam("titulo") String titulo, @RequestParam("descricao") String descricao, @RequestParam("status") EnumStatus status) {
-        Tarefa _tarefa = new Tarefa(titulo, descricao, status);
-        _tarefaService.inserir(_tarefa);
-        return ResponseEntity.ok(_tarefa);
+    public ResponseEntity<Tarefa> inserir(@RequestBody Tarefa tarefa) {
+        _tarefaService.inserir(tarefa);
+        return ResponseEntity.ok(tarefa);
     }
 
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<Tarefa> atualizar(@PathVariable Long id, @RequestParam("titulo") String titulo, @RequestParam("descricao") String descricao, @RequestParam("status") EnumStatus status) {
-        Tarefa _tarefa = new Tarefa(titulo, descricao, status);
-        _tarefaService.atualizar(id, _tarefa);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Tarefa> atualizar(@PathVariable Long id, @RequestBody Tarefa tarefa) {
+        _tarefaService.atualizar(id, tarefa);
+        return ResponseEntity.ok(tarefa);
     }
 
     @DeleteMapping("/deletar/{id}")

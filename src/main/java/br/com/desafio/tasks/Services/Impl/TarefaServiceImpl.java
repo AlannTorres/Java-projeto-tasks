@@ -45,7 +45,10 @@ public class TarefaServiceImpl implements TarefaService {
     public void atualizar(Long id, Tarefa tarefa) {
         Optional<Tarefa> tarefaBd = _tarefaRepository.findById(id);
         if (tarefaBd.isPresent()) {
-
+            tarefaBd.get().setTitulo(tarefa.getTitulo());
+            tarefaBd.get().setDescricao(tarefa.getDescricao());
+            tarefaBd.get().setStatus(tarefa.getStatus());
+            _tarefaRepository.save(tarefaBd.get());
         }
     }
 

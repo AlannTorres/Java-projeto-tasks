@@ -14,14 +14,6 @@ public class Tarefa {
     private String descricao;
     private EnumStatus status;
 
-    public Tarefa() { }
-
-    public Tarefa(String titulo, String descricao, EnumStatus status) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.status = status;
-    }
-
     public Long getId() {
         return id;
     }

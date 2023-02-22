@@ -47,7 +47,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- OpenApi-->
+		<!-- OpenApi -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
